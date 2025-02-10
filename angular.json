@@ -16,6 +16,9 @@
             "outputPath": "dist/netflix-clone",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "aot": true,
+            "optimization": true, 
+            "outputHashing": "all",
             "polyfills": [
               "zone.js"
             ],
@@ -25,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -96,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "db6e4692-d138-4ba9-b807-00c3bd50d9a8"
   }
 }

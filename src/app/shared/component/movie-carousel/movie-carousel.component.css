@@ -1,0 +1,142 @@
+/* Netflix-style container */
+.container {
+  max-width: 100%;
+  padding: 0 4%;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Section Title */
+.container p {
+  font-size: 15px;
+  font-weight: 400;
+  color: #e5e5e5;
+  margin: 0 0 0.5rem 0.5rem;
+}
+
+/* Swiper Container */
+.swiper-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px; /* Space below the carousel */
+}
+
+/* Swiper Wrapper */
+.swiper-wrapper {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.4s ease-in-out;
+  padding: 5px;
+}
+
+/* Movie Slide */
+.swiper-slide {
+  position: relative;
+  background: #181818;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, z-index 0.3s ease-in-out;
+  flex: 0 0 auto;
+  width: 300px; /* More responsive */
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 9px/16px; /* Fallback for older browsers */
+}
+
+/* Hover effect */
+.swiper-slide:hover {
+  transform: scale(1.1);
+  z-index: 2;
+}
+
+/* Movie Image */
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  transition: filter 0.3s ease-in-out;
+}
+
+/* Dark Overlay on Hover */
+.swiper-slide:hover img {
+  filter: brightness(50%);
+}
+
+/* Movie Info */
+.movie-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px;
+  border-radius: 0 0 8px 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out, max-height 0.4s ease-in-out;
+  transform: translateY(10px);
+  overflow: hidden;
+  max-height: 100px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  white-space: normal;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* Show Full Overview on Hover */
+.swiper-slide:hover .movie-info {
+  opacity: 1;
+  transform: translateY(10px);
+  max-height: none; /* Allow full height */
+  -webkit-line-clamp: unset; /* Ensures text is not truncated */
+  display: block; /* Ensures it appears properly */
+  overflow: visible; /* Prevents text cutoff */
+  white-space: normal; /* Allows multi-line text */
+  pointer-events: auto; /* Ensures interactivity */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+/* Vote Average */
+.text-green-500 {
+  color: #46d369;
+  font-weight: bold;
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 5px;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+  .swiper-slide {
+    width: 200px; /* Adjust width for mobile */
+  }
+
+  .movie-info {
+    max-height: 100px;
+    font-size: 0.85rem;
+  }
+
+  .swiper-slide:hover .movie-info {
+    max-height: 100px;
+  }
+  .chevron-circle {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .rotated {
+    transform: rotate(180deg); /* Rotates the chevron when expanded */
+  }
+  
+}

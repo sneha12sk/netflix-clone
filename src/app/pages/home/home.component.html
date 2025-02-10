@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=face" />
+
+<header class="bg-[#080707] text-white p-2/3 shadow-md bg-main sticky top-0 w-full  z-50">
+  <div class="container mx-auto flex items-center justify-between">
+   
+    <app-header></app-header>
+    <!-- Profile Section -->
+    <div class="flex items-center space-x-4">
+     
+      <!-- Profile Name -->
+      <p class="text-sm font-normal"><span class="font-light"> Welcome &nbsp; </span><span class="font-semibold"> {{ name || 'Guest User' }}</span></p>
+       <!-- Profile Picture -->
+       <span class="material-symbols-outlined " style="font-size: 32px;">
+        face
+        </span>
+        <span> | </span>
+      <!-- Sign Out Button -->
+      <button 
+      (click)="signOut()" 
+      class=" hover:underline text-white  text-sm px-2 py-1 rounded-lg transition">
+      Sign Out
+    </button>
+    </div>
+  </div>
+</header>
+<app-banner 
+  [bannerTitle]="(bannerDetails | async)?.original_title" 
+  [bannerOverview]="(bannerDetails | async)?.overview">
+</app-banner>
+
+<app-movie-carousel [movieTitle]="'Popular on Netflix'"[videoContents]="movies"></app-movie-carousel>
+<app-movie-carousel [movieTitle]="'Trending TV Shows'"[videoContents]="tvShows"></app-movie-carousel>
+<app-movie-carousel [movieTitle]="'Now Playing Movies'"[videoContents]="nowPlayingMovies"></app-movie-carousel>
+<app-movie-carousel [movieTitle]="'Popular Movies'"[videoContents]="popularMovies"></app-movie-carousel>
+<app-movie-carousel [movieTitle]="'Top Rated Movies'"[videoContents]="topRatedMovies"></app-movie-carousel>
+<app-movie-carousel [movieTitle]="'Upcoming Movies'"[videoContents]="upcomingMovies"></app-movie-carousel>
+
+
+
